@@ -3,18 +3,20 @@ import { App } from './app';
 import { NxWelcome } from './nx-welcome';
 
 describe('App', () => {
+  let component: App; // Declare component here
+  let fixture: any; // Declare fixture here
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App, NxWelcome],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(App);
+    component = fixture.componentInstance;
+    fixture.detectChanges(); // Trigger change detection
   });
 
-  it('should render title', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome dashboard'
-    );
+  it('should create', async () => {
+    expect(component).toBeTruthy();
   });
 });

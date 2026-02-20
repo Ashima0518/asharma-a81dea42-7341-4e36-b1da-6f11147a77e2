@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import { OrganizationEntity } from './organization.entity.js';
 import { TaskEntity } from './task.entity.js';
-import { UserRole } from './enum.js';
+import { UserRole } from '@org/data';
 import { AuditLogEntity } from './audit-log.entity.js';
 
 @Entity('users')
@@ -28,7 +28,7 @@ export class UserEntity {
 
     @Column({
         type: 'text',
-        default: UserRole.MEMBER,
+        default: UserRole.VIEWER,
     })
     role!: UserRole;
 

@@ -1,0 +1,2 @@
+# Exclude the nested monorepo copy from NX project detection
+asharma-a81dea42-7341-4e36-b1da-6f11147a77e2/

@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 import { OrganizationEntity } from './organization.entity.js';
 import { UserEntity } from './user.entity.js';
-import { TaskStatus } from './enum.js';
+import { TaskStatus, TaskCategory } from '@org/data';
 
 @Entity('tasks')
 export class TaskEntity {
@@ -27,8 +27,11 @@ export class TaskEntity {
     })
     status!: TaskStatus;
 
-    @Column({ nullable: true })
-    category?: string; // e.g., 'Work', 'Personal'
+    @Column({
+        type: 'text',
+        nullable: true,
+    })
+    category?: TaskCategory;
 
     @Column({ type: 'int', default: 0 })
     order!: number; // for drag-and-drop ordering
