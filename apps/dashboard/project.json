@@ -3,23 +3,27 @@
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/src",
+  "sourceRoot": "apps/dashboard/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
-        "outputPath": "dist/apps",
-        "browser": "apps/src/main.ts",
-        "tsConfig": "apps/tsconfig.app.json",
+        "outputPath": "dist/apps/dashboard",
+        "browser": "apps/dashboard/src/main.ts",
+        "tsConfig": "apps/dashboard/tsconfig.app.json",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/public"
+            "input": "apps/dashboard/public"
           }
         ],
-        "styles": ["apps/src/styles.css"]
+        "styles": [
+          "apps/dashboard/src/styles.css"
+        ]
       },
       "configurations": {
         "production": {
@@ -48,6 +52,9 @@
     "serve": {
       "continuous": true,
       "executor": "@angular/build:dev-server",
+      "options": {
+        "proxyConfig": "apps/dashboard/proxy.conf.json"
+      },
       "configurations": {
         "production": {
           "buildTarget": "dashboard:build:production"

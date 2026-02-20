@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from 'typeorm';
 import { UserEntity } from './user.entity.js';
 import { TaskEntity } from './task.entity.js';
 import { AuditLogEntity } from './audit-log.entity.js';
@@ -14,6 +14,17 @@ export class OrganizationEntity {
 
     @Column({ unique: true })
     name!: string;
+
+    @Column('uuid', { nullable: true })
+    parentId?: string; // Links to parent org if this is a sub-org
+
+    @ManyToOne(() => OrganizationEntity, (org) => org.children, {
+        onDelete: 'CASCADE',
+    })
+    parent?: OrganizationEntity;
+
+    @OneToMany(() => OrganizationEntity, (org) => org.parent)
+    children!: OrganizationEntity[];
 
     // Relationships
     @OneToMany(() => UserEntity, (user) => user.organization, {
