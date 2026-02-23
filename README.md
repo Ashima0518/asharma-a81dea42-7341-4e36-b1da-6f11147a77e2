@@ -218,3 +218,9 @@ While the current architecture properly covers core requirements, several things
 2. **CSRF Protection:** Add CSRF tokens to safeguard the API from cross-site scripting hijacks when migrating auth logic into strictly cookie borders.
 3. **Advanced Role Delegation:** Instead of hardcoded strings (`OWNER`, `VIEWER`), moving towards a Permissions Table mapping exactly which granular action flags array (`task:create`, `task:delete`, `audit:read`) map to customized User Roles.
 4. **Caching Permission Checks:** Utilize Redis caches bound to user sessions to avoid hitting the DB strictly for hierarchy evaluations on heavily spammed GET endpoints.
+
+
+**Creds**
+1. **Viewer Role:** Email: bob@company.com | Password: Password123
+2. **Admin Role:** Email: admin@company.com | Password: Password123
+3. **Owner Role:** Email: alice@company.com | Password: Password123
