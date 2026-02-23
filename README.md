@@ -223,4 +223,4 @@ While the current architecture properly covers core requirements, several things
 **Creds**
 1. **Viewer Role:** Email: bob@company.com | Password: Password123
 2. **Admin Role:** Email: admin@company.com | Password: Password123
-3. **Owner Role:** Email: alice@company.com | Password: Password123
+3. **Owner Role:** Email: alice@company.com, owner@company.com | Password: Password123
